@@ -63,12 +63,11 @@ fig = go.Figure(data=[
 
 fig.update_traces(textposition='inside')
 # chart layout
-fig.update_layout(
-                  barmode='stack',height=750, width=750,
+fig.update_layout(barmode='stack',height=750, width=750,
                   paper_bgcolor='rgb(38, 39, 48)',
                   plot_bgcolor='rgb(38, 39, 48)',
                   font_color='rgb(199, 208, 216)',
-                  margin=dict(l=50, r=20, t=20, b=20),
+                  margin=dict(l=50, r=20, t=20, b=20,pad=20),
                   xaxis = dict(tickfont = dict(size=15)),
                   yaxis = dict(tickfont = dict(size=15)),
                   showlegend=False)
