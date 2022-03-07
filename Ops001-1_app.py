@@ -73,16 +73,16 @@ fig.update_layout(
                   yaxis = dict(tickfont = dict(size=15)),
                   showlegend=False)
 
-
-fig.update_layout(
-    title=dict(
-        text='<b>By Branch</b>',
-        x=0.9,
-        y=0.9,
-        font=dict(
-            size=40,
-            color='#ffffff'
-        )))
+# title
+# fig.update_layout(
+#     title=dict(
+#         text='<b>By Branch</b>',
+#         x=0.9,
+#         y=0.9,
+#         font=dict(
+#             size=40,
+#             color='#ffffff'
+#         )))
 
 
 fig.update_xaxes(categoryorder='category ascending', gridcolor='#c7d0d8')
@@ -157,15 +157,15 @@ fig2.update_layout(showlegend=False,
 ))
 
 # Title 
-fig2.update_layout(
-    title=dict(
-        text='<b>By Region</b>',
-        x=0.9,
-        y=0.85,
-        font=dict(
-            size=40,
-            color='#ffffff'
-        )))
+# fig2.update_layout(
+#     title=dict(
+#         text='<b>By Region</b>',
+#         x=0.9,
+#         y=0.85,
+#         font=dict(
+#             size=40,
+#             color='#ffffff'
+#         )))
 
 # shape behind title
 #fig2.add_shape(type="rect",
