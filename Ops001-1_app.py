@@ -84,7 +84,7 @@ fig.update_layout(barmode='stack',height=750, width=750,
 #         )))
 
 
-fig.update_xaxes(categoryorder='category ascending', gridcolor='#c7d0d8')
+fig.update_xaxes(categoryorder='category ascending', gridcolor='black')
 fig.update_yaxes(autorange="reversed",showline=False)
 fig.update_xaxes(range=[0, 280])
 
