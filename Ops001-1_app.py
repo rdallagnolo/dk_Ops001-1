@@ -111,7 +111,7 @@ fig2.update_layout(barmode='stack',height=500, width=500,
                   xaxis = dict(tickfont = dict(size=15),tickangle=45),
                   yaxis = dict(tickfont = dict(size=15)))
 
-fig.update_xaxes(gridcolor='gray')
+fig2.update_xaxes(gridcolor='gray')
 
 # legend
 fig2.update_layout(showlegend=False,
