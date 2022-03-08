@@ -103,7 +103,7 @@ fig2 = go.Figure(data=[
 ])
 
 # chart layout
-fig2.update_layout(barmode='stack',height=800, width=500,
+fig2.update_layout(barmode='stack',height=750, width=500,
                   paper_bgcolor='rgb(38, 39, 48)',
                   plot_bgcolor='rgb(38, 39, 48)',
                   font_color='#c7d0d8',
@@ -121,24 +121,6 @@ fig2.update_layout(legend=dict(
        xanchor="left",
        x=0.0,
        font_size=15))
-
-# Title 
-# fig2.update_layout(
-#     title=dict(
-#         text='<b>By Region</b>',
-#         x=0.9,
-#         y=0.85,
-#         font=dict(
-#             size=40,
-#             color='#ffffff'
-#         )))
-
-# shape behind title
-#fig2.add_shape(type="rect",
-#    x0=4.7, y0=590, x1=2.7, y1=550,
-#    line=dict( color="RoyalBlue", width=0),
-#    fillcolor="#c7d0d8", opacity=0.5)
-
 
 # remove line
 fig2.update_traces(marker_line_width=0)
