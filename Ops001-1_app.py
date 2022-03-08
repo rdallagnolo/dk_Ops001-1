@@ -69,8 +69,7 @@ fig.update_layout(barmode='stack',height=750, width=750,
                   font_color='rgb(199, 208, 216)',
                   margin=dict(l=50, r=20, t=20, b=20,pad=20),
                   xaxis = dict(tickfont = dict(size=15)),
-                  yaxis = dict(tickfont = dict(size=15)),
-                  showlegend=False)
+                  yaxis = dict(tickfont = dict(size=15)))
 
 fig.update_xaxes(range=[0, 280],categoryorder='category ascending', gridcolor='gray')
 fig.update_yaxes(autorange="reversed",showline=False)
