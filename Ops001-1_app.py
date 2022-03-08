@@ -107,7 +107,7 @@ fig2.update_layout(barmode='stack',height=800, width=500,
                   paper_bgcolor='rgb(38, 39, 48)',
                   plot_bgcolor='rgb(38, 39, 48)',
                   font_color='#c7d0d8',
-                  margin=dict(l=20, r=20, t=20, b=20),
+                  margin=dict(l=20, r=20, t=20, b=20, pad=20),
                   xaxis = dict(tickfont = dict(size=15),tickangle=45),
                   yaxis = dict(tickfont = dict(size=15)))
 
