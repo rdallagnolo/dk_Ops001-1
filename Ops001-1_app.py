@@ -103,7 +103,7 @@ fig2 = go.Figure(data=[
 ])
 
 # chart layout
-fig2.update_layout(barmode='stack',height=700, width=500,
+fig2.update_layout(barmode='stack',height=900, width=500,
                   paper_bgcolor='rgb(38, 39, 48)',
                   plot_bgcolor='rgb(38, 39, 48)',
                   font_color='#c7d0d8',
