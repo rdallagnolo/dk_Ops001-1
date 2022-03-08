@@ -158,4 +158,6 @@ col7.metric(label='Returning',value=returning)
 col1.plotly_chart(fig)
 col5.plotly_chart(fig2)
 
+df2 = df.drop(["Date","order"],axis=1)
+
 st.table(data=df)
