@@ -79,9 +79,9 @@ fig.update_traces(marker_line_width=0, textposition='inside')
 fig.update_layout(legend=dict(
        orientation="v",
        yanchor="bottom",
-       y=1.05,
+       y=0.5,
        xanchor="left",
-       x=0.0,
+       x=0.5,
        font_size=15))
 
 
