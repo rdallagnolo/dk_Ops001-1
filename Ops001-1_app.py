@@ -159,5 +159,6 @@ col1.plotly_chart(fig)
 col5.plotly_chart(fig2)
 
 df2 = df.drop(["Date","order"],axis=1)
+df2.reset_index(drop=True, inplace=True)
 
 st.table(data=df2)
