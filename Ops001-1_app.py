@@ -119,7 +119,7 @@ fig2.update_layout(legend=dict(
        yanchor="bottom",
        y=1.02,
        xanchor="left",
-       x=0.6,
+       x=0.0,
        font_size=10))
 
 # Title 
