@@ -146,7 +146,7 @@ virtual_new_borrower = total.loc[34,'Virtual new borrower']
 returning = total.loc[34,'Returning']
 
 
-## PLoting the graphs in the streamlit app
+## Ploting the graphs in the streamlit app
 col1, col2, col3, col4, col5, col6, col7 = st.columns(7) 
 col1.metric(label='# of drops',value=n_of_drops)
 col2.metric(label='# of partial',value=n_of_partial)
@@ -158,6 +158,7 @@ col7.metric(label='Returning',value=returning)
 col1.plotly_chart(fig)
 col5.plotly_chart(fig2)
 
-df2 = df.drop(["Date","order"],axis=1)
 
+## Ploting the data
+df2 = df.drop(["Date","order"],axis=1)
 st.table(data=df2)
