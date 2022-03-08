@@ -76,6 +76,16 @@ fig.update_xaxes(range=[0, 280],categoryorder='category ascending', gridcolor='g
 fig.update_yaxes(autorange="reversed",showline=False)
 fig.update_traces(marker_line_width=0, textposition='inside')
 
+# legend
+fig.update_layout(legend=dict(
+       orientation="h",
+       yanchor="bottom",
+       y=1.05,
+       xanchor="left",
+       x=0.0,
+       font_size=15))
+
+
 ##################################################################
 # BY REGION
 ##################################################################
