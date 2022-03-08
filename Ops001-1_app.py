@@ -61,7 +61,7 @@ fig = go.Figure(data=[
            orientation='h',text=branch['Returning'],)
 ])
 
-fig.update_traces(textposition='inside')
+
 # chart layout
 fig.update_layout(barmode='stack',height=750, width=750,
                   paper_bgcolor='rgb(38, 39, 48)',
@@ -72,42 +72,9 @@ fig.update_layout(barmode='stack',height=750, width=750,
                   yaxis = dict(tickfont = dict(size=15)),
                   showlegend=False)
 
-# title
-# fig.update_layout(
-#     title=dict(
-#         text='<b>By Branch</b>',
-#         x=0.9,
-#         y=0.9,
-#         font=dict(
-#             size=40,
-#             color='#ffffff'
-#         )))
-
-
-fig.update_xaxes(categoryorder='category ascending', gridcolor='gray')
+fig.update_xaxes(range=[0, 280],categoryorder='category ascending', gridcolor='gray')
 fig.update_yaxes(autorange="reversed",showline=False)
-fig.update_xaxes(range=[0, 280])
-
-# remove line
-fig.update_traces(marker_line_width=0)
-
-# legend
-#fig.update_layout(legend=dict(
-#    orientation="v",
-#    yanchor="top",
-#    y=0.2,
-#    xanchor="left",
-#    x=0.7,
-#    font_size=20
-#))
-
-#shape behind title
-#fig.add_shape(type="rect",
-#    x0=70, y0=20, x1=180, y1=50,
-#    line=dict(color="RoyalBlue",width=0),
-#    fillcolor="#c7d0d8",
-#              opacity=0.5
-#)
+fig.update_traces(marker_line_width=0, textposition='inside')
 
 ##################################################################
 # BY REGION
@@ -143,6 +110,8 @@ fig2.update_layout(barmode='stack',height=500, width=500,
                   margin=dict(l=20, r=20, t=20, b=20),
                   xaxis = dict(tickfont = dict(size=15),tickangle=45),
                   yaxis = dict(tickfont = dict(size=15)))
+
+fig.update_xaxes(gridcolor='gray')
 
 # legend
 fig2.update_layout(showlegend=False,
