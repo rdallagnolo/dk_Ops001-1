@@ -158,4 +158,4 @@ col7.metric(label='Returning',value=returning)
 col1.plotly_chart(fig)
 col5.plotly_chart(fig2)
 
-col3.st.table(data=df)
+st.table(data=df)
