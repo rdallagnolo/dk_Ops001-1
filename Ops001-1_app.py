@@ -107,7 +107,7 @@ fig2.update_layout(barmode='stack',height=500, width=500,
                   paper_bgcolor='rgb(38, 39, 48)',
                   plot_bgcolor='rgb(38, 39, 48)',
                   font_color='#c7d0d8',
-                  margin=dict(l=20, r=20, t=20, b=120),
+                  margin=dict(l=20, r=20, t=20, b=20),
                   xaxis = dict(tickfont = dict(size=15),tickangle=45),
                   yaxis = dict(tickfont = dict(size=15)))
 
@@ -116,7 +116,7 @@ fig2.update_yaxes(gridcolor='gray')
 # legend
 fig2.update_layout(legend=dict(
        orientation="h",
-       yanchor="top",
+       yanchor="bottom",
        y=0.0,
        xanchor="left",
        x=0.0,
