@@ -116,7 +116,7 @@ fig2.update_yaxes(gridcolor='gray')
 # legend
 fig2.update_layout(legend=dict(
        orientation="h",
-       yanchor="bottom",
+       yanchor="top",
        y=1.02,
        xanchor="left",
        x=0.0,
