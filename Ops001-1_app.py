@@ -114,15 +114,13 @@ fig2.update_layout(barmode='stack',height=500, width=500,
 fig2.update_yaxes(gridcolor='gray')
 
 # legend
-fig2.update_layout(showlegend=False,
-    legend=dict(
-    orientation="v",
-    yanchor="top",
-    y=0.8,
-    xanchor="left",
-    x=0.6,
-    font_size=20
-))
+fig2.update_layout(legend=dict(
+       orientation="v",
+       yanchor="top",
+       y=0.8,
+       xanchor="left",
+       x=0.6,
+       font_size=20))
 
 # Title 
 # fig2.update_layout(
