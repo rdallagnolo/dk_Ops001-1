@@ -6,10 +6,38 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import datetime
 
-# Read in the dummy dataset
-df = pd.read_csv("Ops001-1_data.csv",parse_dates=["Date"])
+##################################################################
+# The dashboard
+##################################################################
 
-# Split the dummy dataset by graphs 
+# wide layout
+st.set_page_config(layout="wide")
+# side bar
+st.sidebar.markdown("<h1 style='text-align: center; color: white '>Pick the day</h1>", unsafe_allow_html=True)
+# calendar 
+d=st.sidebar.date_input(label="",value=datetime.date(2021,12,25))     # starting date
+# converting the selected from datetime to string so it can be used to slice the dataset
+d=d.strftime("%Y-%m-%d")                                              
+d=str(d)                                                              
+
+# add some css style to the page
+with open('style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+# main header with report name
+st.markdown("<h1 style='text-align: center; color: white '>Area and branch wise daily updates</h1>", unsafe_allow_html=True)
+# header with date selected
+st.markdown(f"<h2 style='text-align: center; color: white '>{d}</h2>", unsafe_allow_html=True)
+
+##################################################################
+# The dummy dataset
+##################################################################
+df = pd.read_csv("Ops001-1_data.csv",sep=';',parse_dates=["Date"])
+# slicing the dataset to show only the selected day
+df = df[df['Date']==d]
+# reseting and droping index                    
+df.reset_index(drop=True,inplace=True)
+
+## Splicing the dummy dataset by graphs 
 # droping 'Grand Total' and Regions
 branch = df.drop(labels=[6,13,18,25,27,33,34],axis=0)
 
@@ -19,21 +47,8 @@ region = df.iloc[[6,13,18,25,27,33]]
 # grand total
 total = df.iloc[[34]]
 
-##### The dashboard
-st.set_page_config(layout="wide")           # wide layout
-
-with open('style.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-st.markdown("<h1 style='text-align: center; color: white '>Area and branch wise daily updates</h1>", unsafe_allow_html=True)
-
-# Adding a side bar with 
-st.sidebar.markdown("<h1 style='text-align: center; color: white '>Pick the day</h1>", unsafe_allow_html=True)
-
-d=st.sidebar.date_input(label="",value=datetime.date.today())
-
 ##################################################################
-# BY Branch
+# By branch graph
 ##################################################################
 fig = go.Figure(data=[
     go.Bar(name='# of drop', y=branch['Branch Name'], x=branch['# of drop'],
@@ -67,11 +82,12 @@ fig.update_layout(barmode='stack',height=750, width=750,
                   xaxis = dict(tickfont = dict(size=15)),
                   yaxis = dict(tickfont = dict(size=15)))
 
-fig.update_xaxes(categoryorder='category ascending', gridcolor='gray')
+# axes updates
+fig.update_xaxes(categoryorder='category ascending', gridcolor='gray',type='linear')
 fig.update_yaxes(autorange="reversed",showline=False)
 fig.update_traces(marker_line_width=0, textposition='inside')
 
-# legend
+# legend position
 fig.update_layout(legend=dict(
        orientation="h",
        yanchor="bottom",
@@ -80,9 +96,8 @@ fig.update_layout(legend=dict(
        x=0,
        font_size=15))
 
-
 ##################################################################
-# BY REGION
+# By region graph
 ##################################################################
 fig2 = go.Figure(data=[
     go.Bar(name='# of drop', x=region['Branch Name'], y=region['# of drop'],
@@ -116,9 +131,10 @@ fig2.update_layout(barmode='stack',height=750, width=500,
                   xaxis = dict(tickfont = dict(size=15),tickangle=45),
                   yaxis = dict(tickfont = dict(size=15)))
 
-fig2.update_yaxes(gridcolor='gray')
+# axis updates
+fig2.update_yaxes(gridcolor='gray',type='linear')
 
-# legend
+# legend position
 fig2.update_layout(legend=dict(
        orientation="h",
        yanchor="bottom",
@@ -127,12 +143,13 @@ fig2.update_layout(legend=dict(
        x=0.0,
        font_size=15))
 
-# remove line
+# line with set to 0
 fig2.update_traces(marker_line_width=0)
 
 ##################################################################
-# Grand Total 
+# Grand Total Metrics
 ##################################################################
+# variables
 n_of_drops = total.loc[34,'# of drop']
 n_of_partial = total.loc[34,'# of partial']
 yesterday_paid = total.loc[34,'Yesterday paid off #']
@@ -141,8 +158,9 @@ n_irregulars_borrower = total.loc[34,'# of irregular borrower']
 virtual_new_borrower = total.loc[34,'Virtual new borrower']
 returning = total.loc[34,'Returning']
 
-
-## Ploting the graphs in the streamlit app
+##################################################################
+## Ploting the graphs in the dashboard
+##################################################################
 col1, col2, col3, col4, col5, col6, col7 = st.columns(7) 
 col1.metric(label='# of drops',value=n_of_drops)
 col2.metric(label='# of partial',value=n_of_partial)
@@ -155,7 +173,7 @@ col1.plotly_chart(fig)
 col5.plotly_chart(fig2)
 
 ##################################################################
-# Data table 
+# Add the data table to the dashboard
 ##################################################################
-df2 = df.drop(["Date","order"],axis=1)
+df2 = df.drop(["Date"],axis=1)
 st.table(data=df2)
