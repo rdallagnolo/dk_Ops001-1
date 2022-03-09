@@ -31,9 +31,6 @@ st.markdown("<h1 style='text-align: center; color: white '>Area and branch wise 
 st.sidebar.markdown("<h1 style='text-align: center; color: white '>Pick the day</h1>", unsafe_allow_html=True)
 
 d=st.sidebar.date_input(label="",value=datetime.date.today())
-#col1, col2  = st.columns(2)
-
-
 
 ##################################################################
 # BY Branch
@@ -60,7 +57,6 @@ fig = go.Figure(data=[
     go.Bar(name='Returning', y=branch['Branch Name'], x=branch['Returning'],
            orientation='h',text=branch['Returning'],)
 ])
-
 
 # chart layout
 fig.update_layout(barmode='stack',height=750, width=750,
